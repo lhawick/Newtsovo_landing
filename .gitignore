@@ -3,6 +3,12 @@
 #Django
 Nemtsovo/media/
 Nemtsovo/Nemtsovo/config.py
+.htaccess
+passenger_wsgi.py
+
+#Media and static
+media/
+static/
 
 .idea/
 
