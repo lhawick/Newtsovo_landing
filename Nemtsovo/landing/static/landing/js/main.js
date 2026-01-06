@@ -205,8 +205,8 @@ addBookingBtn?.addEventListener('click', evt => {
         'whatsapp': bookingForm.whatsapp.checked,
         'booking_identifier': booking_identifier,
         'is_dayly': isDaylyBooking,
-        'late_checkout': isDaylyBooking ? bookingForm.lateCheckout?.checked : undefined,
-        'early_checkin': isDaylyBooking ? bookingForm.earlyCheckin?.checked : undefined,
+        'late_checkout': isDaylyBooking ? bookingForm.lateCheckout?.checked ?? false : false,
+        'early_checkin': isDaylyBooking ? bookingForm.earlyCheckin?.checked ?? false : false,
         'comment': bookingForm.comment.value
     }
 

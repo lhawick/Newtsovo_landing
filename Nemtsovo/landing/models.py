@@ -35,7 +35,7 @@ class Booking(models.Model):
         editable=False)
     childs_count = models.PositiveIntegerField("Кол-во детей", default=0, editable=False)
     desired_dates = models.CharField(verbose_name='Желаемые даты', max_length=400, editable=False)
-    is_has_whatsapp = models.BooleanField("Имеется Whatsapp", editable=False)
+    is_has_whatsapp = models.BooleanField("Имеется Telegram", editable=False)
 
     date_create = models.DateTimeField('Дата создания', editable=False, auto_now_add=True)
     is_dayly = models.BooleanField("Суточное бронирование", default=False)

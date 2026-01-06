@@ -84,8 +84,8 @@ def add_booking(request):
         decoded_body = request.body.strip().decode('utf-8')
         form_data = json.loads(decoded_body)
 
-        late_checkout = form_data.get('late_checkout', False) not in ['undefined', 'null', '']
-        early_checkin = form_data.get('early_checkin', False) not in ['undefined', 'null', '']
+        late_checkout = bool(form_data.get('late_checkout', False))
+        early_checkin = bool(form_data.get('early_checkin', False))
 
         new_booking = Booking(
             fio=form_data['fio'],
@@ -122,7 +122,7 @@ def get_booked_days(request, booking_identifier_id):
         get_bookings_query = Booking.objects \
                         .filter(booking_identifier_id=booking_identifier_id) \
                         .filter(date_create__lt=timezone.now()) \
-                        .exclude(status='c') \
+                        .filter(status='b') \
                         .values('desired_dates', 'date_start_fact', 'date_end_fact', 'is_late_checkout')
 
         if 'only_dayly' in request.GET:
